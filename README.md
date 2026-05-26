@@ -46,6 +46,21 @@ algorithms/
 | Two Sum II | O(n) | O(1) | [two_pointers/two_sum_ii.py](two_pointers/two_sum_ii.py) |
 | 3Sum | O(n²) | O(1) | [two_pointers/three_sum.py](two_pointers/three_sum.py) |
 
+#### Minimum Window Substring implementation notes
+- File: `sliding_window/minimum_window_substring.py`
+- `Solution.minWindowBrute(s, t)`:
+  - Baseline correctness-first approach.
+  - Tries all windows and validates required character frequencies.
+  - Time: `O(n^2 * u)` (commonly discussed as `O(n^3)` worst case), Space: `O(u + v)`.
+- `Solution.minWindowOptimal(s, t)`:
+  - Sliding-window implementation with `have/need` invariant.
+  - Expands with right pointer and shrinks with left pointer whenever valid.
+  - Time: `O(n + m)`, Space: `O(u + v)`.
+- `Solution.minWindow(s, t)` delegates to the optimal method for LeetCode submission.
+- Unit tests:
+  - Included in the same file via `unittest` and run with verbose output.
+  - Covers standard case, edge cases, duplicate requirements, and method parity (brute vs optimal).
+
 ### Week 3 — Stack & Binary Search
 
 | Problem | Optimal Time | Optimal Space | Link |
